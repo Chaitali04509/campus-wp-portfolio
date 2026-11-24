@@ -1,0 +1,76 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"meta": {
+		"title": "Campus WordPress Portfolio: live demo",
+		"description": "WordPress Multisite with the Coastal Lab theme, Campus Directory network plugin, ACF and sample content.",
+		"author": "Chaitali04509"
+	},
+	"landingPage": "/coastal-lab/",
+	"preferredVersions": {
+		"php": "8.2",
+		"wp": "latest"
+	},
+	"features": {
+		"networking": true
+	},
+	"login": true,
+	"steps": [
+		{
+			"step": "enableMultisite"
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "wordpress.org/plugins",
+				"slug": "advanced-custom-fields"
+			},
+			"options": {
+				"activate": false
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "url",
+				"url": "https://raw.githubusercontent.com/Chaitali04509/campus-wp-portfolio/fe29e8053afe6735770365a52ef9f0eb9e69b0e2/campus-directory.zip"
+			},
+			"options": {
+				"activate": false
+			}
+		},
+		{
+			"step": "installTheme",
+			"themeData": {
+				"resource": "url",
+				"url": "https://raw.githubusercontent.com/Chaitali04509/campus-wp-portfolio/fe29e8053afe6735770365a52ef9f0eb9e69b0e2/coastal-lab.zip"
+			},
+			"options": {
+				"activate": false
+			}
+		},
+		{
+			"step": "writeFile",
+			"path": "/wordpress/demo-setup.php",
+			"data": {
+				"resource": "url",
+				"url": "https://raw.githubusercontent.com/Chaitali04509/campus-wp-portfolio/fe29e8053afe6735770365a52ef9f0eb9e69b0e2/demo-setup.php"
+			}
+		},
+		{
+			"step": "writeFile",
+			"path": "/wordpress/demo-content.php",
+			"data": {
+				"resource": "url",
+				"url": "https://raw.githubusercontent.com/Chaitali04509/campus-wp-portfolio/fe29e8053afe6735770365a52ef9f0eb9e69b0e2/demo-content.php"
+			}
+		},
+		{
+			"step": "wp-cli",
+			"command": "wp eval-file /wordpress/demo-setup.php"
+		},
+		{
+			"step": "wp-cli",
+			"command": "wp eval-file /wordpress/demo-content.php"
+		}
+	]
+}
