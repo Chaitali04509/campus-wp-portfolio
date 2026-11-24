@@ -2,8 +2,8 @@
 
 ## Requirements
 - Docker Desktop
-- Node 20+ (only for building theme assets). If you don't have Node installed:
-  `docker run --rm -v "$PWD":/app -w /app node:20 npm run build`
+- Node 22+ (only for building theme assets). If you don't have Node installed:
+  `docker run --rm -v "$PWD":/app -w /app node:22 npm run build`
 - Port 80 free (WordPress Multisite does not allow a port number in the site URL)
 
 ## First run

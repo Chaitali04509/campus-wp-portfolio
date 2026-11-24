@@ -5,7 +5,7 @@
   "description": "Front-end build for the Coastal Lab WordPress theme.",
   "license": "GPL-2.0-or-later",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "scripts": {
     "start": "wp-scripts start",

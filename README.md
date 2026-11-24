@@ -51,7 +51,7 @@ docker compose up -d
 open http://localhost   # admin: http://localhost/wp-admin  (admin / admin)
 ```
 
-Build the theme assets (needs Node 20+):
+Build the theme assets (needs Node 22+):
 
 ```bash
 cd 01-research-lab-theme/coastal-lab
