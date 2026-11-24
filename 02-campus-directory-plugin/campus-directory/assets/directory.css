@@ -1,0 +1,105 @@
+/* Campus Directory: deliberately light styles that inherit the theme's fonts and colors. */
+
+.cd-directory {
+	--cd-gap: 1.5rem;
+	--cd-border: #d5dde2;
+	--cd-muted: #4a5a65;
+	margin-block: 1.5rem;
+}
+
+.cd-search {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	gap: 0.75rem 1rem;
+	padding: 1rem;
+	border: 1px solid var(--cd-border);
+	border-radius: 6px;
+	margin-bottom: 1rem;
+}
+
+.cd-search__field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	flex: 1 1 14rem;
+}
+
+.cd-search__field label {
+	font-weight: 600;
+}
+
+.cd-search input,
+.cd-search select,
+.cd-search__submit {
+	min-height: 44px;
+	padding: 0.5rem 0.75rem;
+	font: inherit;
+	border: 1px solid #8a9aa4;
+	border-radius: 4px;
+}
+
+.cd-search__submit {
+	cursor: pointer;
+	font-weight: 600;
+}
+
+.cd-count,
+.cd-person__meta,
+.cd-person__title {
+	color: var(--cd-muted);
+	margin: 0;
+}
+
+.cd-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: var(--cd-gap);
+}
+
+.cd-directory--grid .cd-list {
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+}
+
+.cd-person {
+	display: flex;
+	gap: 1rem;
+	align-items: flex-start;
+}
+
+.cd-directory--list .cd-person {
+	padding-bottom: var(--cd-gap);
+	border-bottom: 1px solid var(--cd-border);
+}
+
+.cd-person__photo {
+	flex: 0 0 auto;
+	width: 96px;
+	height: 96px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.cd-person__photo--empty {
+	display: grid;
+	place-items: center;
+	background: #e7ebee;
+	font-size: 2rem;
+	font-weight: 700;
+	color: var(--cd-muted);
+}
+
+.cd-person__name {
+	margin: 0 0 0.25rem;
+	font-size: 1.125rem;
+}
+
+.cd-person__contact {
+	list-style: none;
+	margin: 0.5rem 0 0;
+	padding: 0;
+	font-size: 0.9375rem;
+	overflow-wrap: anywhere;
+}
