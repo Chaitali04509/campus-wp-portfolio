@@ -1,0 +1,69 @@
+/*
+ * Marine Sciences: overrides on top of Divi.
+ * Global colors/fonts are set in Divi > Theme Customizer and the Theme Builder.
+ * This file is only for things Divi's UI cannot do (mostly accessibility).
+ */
+
+:root {
+	--marine-navy: #0a2540;
+	--marine-teal: #0b5d73;
+	--marine-focus: #c2410c;
+}
+
+/* Skip link: hidden until focused */
+.marine-skip-link {
+	position: absolute;
+	left: -9999px;
+	top: 0.5rem;
+	z-index: 100000;
+	padding: 0.5rem 1rem;
+	background: #fff;
+	color: var(--marine-navy);
+	font-weight: 700;
+}
+
+.marine-skip-link:focus {
+	left: 0.5rem;
+}
+
+/* Restore visible focus on Divi elements that remove it */
+.et_pb_button:focus-visible,
+#top-menu a:focus-visible,
+.et_mobile_menu a:focus-visible,
+.mobile_menu_bar:focus-visible,
+.et_pb_toggle_title:focus-visible,
+.et_pb_tabs_controls a:focus-visible,
+.et_pb_contact_form input:focus-visible,
+.et_pb_contact_form textarea:focus-visible {
+	outline: 3px solid var(--marine-focus) !important;
+	outline-offset: 2px;
+}
+
+/* Underline links in body text so they are not identified by color alone (WCAG 1.4.1) */
+.et_pb_text a,
+.et_pb_post_content a {
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+
+/* Minimum touch target for buttons and mobile menu items */
+.et_pb_button,
+.et_mobile_menu li a {
+	min-height: 44px;
+	display: inline-flex;
+	align-items: center;
+}
+
+/* Divi's default body text gray (#666) fails AA on some backgrounds */
+body {
+	color: #3d4852;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.et_animated,
+	.et-waypoint {
+		animation: none !important;
+		opacity: 1 !important;
+		transform: none !important;
+	}
+}
