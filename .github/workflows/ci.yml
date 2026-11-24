@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  theme-assets:
+    name: Build & lint theme assets
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 01-research-lab-theme/coastal-lab
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - run: npm run lint:js
+      - run: npm run lint:css
+      - run: npm run build
+
+  php:
+    name: PHP lint & WordPress Coding Standards
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          tools: composer
+      - name: Syntax check every PHP file
+        run: find . -name '*.php' -not -path '*/vendor/*' -print0 | xargs -0 -n1 php -l
+      - name: Install PHPCS + WPCS
+        run: composer install --no-interaction --no-progress
+      - name: Run PHPCS
+        run: vendor/bin/phpcs

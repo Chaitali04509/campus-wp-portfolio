@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<ruleset name="Campus WP Portfolio">
+	<description>WordPress Coding Standards for all themes and plugins in this repo.</description>
+
+	<file>01-research-lab-theme/coastal-lab</file>
+	<file>02-campus-directory-plugin/campus-directory</file>
+	<file>03-divi-child-theme/marine-dept-divi-child</file>
+
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/build/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg value="sp"/>
+
+	<config name="testVersion" value="8.0-"/>
+	<config name="minimum_wp_version" value="6.3"/>
+
+	<rule ref="PHPCompatibilityWP"/>
+	<rule ref="WordPress">
+		<!-- Template files are named by the WordPress template hierarchy, not class names. -->
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+	</rule>
+
+	<!-- Template-hierarchy files must match post type slugs (single-research_project.php). -->
+	<rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
+		<exclude-pattern>01-research-lab-theme/coastal-lab/*</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="coastal-lab"/>
+				<element value="campus-directory"/>
+				<element value="marine-dept"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="coastal_lab"/>
+				<element value="campus_directory"/>
+				<element value="Campus_Directory"/>
+				<element value="CAMPUS_DIRECTORY"/>
+				<element value="marine_dept"/>
+				<element value="MARINE_DEPT"/>
+			</property>
+		</properties>
+	</rule>
+</ruleset>
