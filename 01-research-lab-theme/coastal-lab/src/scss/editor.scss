@@ -1,0 +1,21 @@
+// Block editor styles (loaded via add_editor_style). WordPress rewrites `body`
+// and `:root` to `.editor-styles-wrapper`, so the editing canvas picks up the
+// same tokens and type as the front end.
+@use "tokens";
+
+body {
+	font-family: var(--cl-font-body);
+	color: var(--cl-color-ink);
+	line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+	font-family: var(--cl-font-heading);
+	line-height: 1.2;
+}
+
+a {
+	color: var(--cl-color-sea);
+}
