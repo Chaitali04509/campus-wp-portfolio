@@ -1,0 +1,61 @@
+# Local WordPress Multisite environment.
+# Note: WordPress Multisite does not support non-standard ports in the site URL,
+# so WordPress is served on port 80 (http://localhost).
+services:
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: wordpress
+      MARIADB_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+
+  wordpress:
+    image: wordpress:6-php8.2-apache
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "80:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DEBUG: 1
+      WORDPRESS_CONFIG_EXTRA: |
+        define( 'WP_ALLOW_MULTISITE', true );
+        define( 'WP_ENVIRONMENT_TYPE', 'local' );
+        define( 'SCRIPT_DEBUG', true );
+    volumes:
+      - wp_core:/var/www/html
+      - ./01-research-lab-theme/coastal-lab:/var/www/html/wp-content/themes/coastal-lab
+      - ./03-divi-child-theme/marine-dept-divi-child:/var/www/html/wp-content/themes/marine-dept-divi-child
+      - ./02-campus-directory-plugin/campus-directory:/var/www/html/wp-content/plugins/campus-directory
+
+  # WP-CLI shares the WordPress volume. Used by bin/setup.sh.
+  cli:
+    image: wordpress:cli-php8.2
+    depends_on:
+      - db
+      - wordpress
+    user: "33:33"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - wp_core:/var/www/html
+      - ./01-research-lab-theme/coastal-lab:/var/www/html/wp-content/themes/coastal-lab
+      - ./03-divi-child-theme/marine-dept-divi-child:/var/www/html/wp-content/themes/marine-dept-divi-child
+      - ./02-campus-directory-plugin/campus-directory:/var/www/html/wp-content/plugins/campus-directory
+    entrypoint: ["wp"]
+    profiles: ["cli"]
+
+volumes:
+  db_data:
+  wp_core:
