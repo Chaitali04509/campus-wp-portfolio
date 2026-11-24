@@ -1,0 +1,32 @@
+{
+  "name": "coastal-lab",
+  "version": "1.0.0-rc.2",
+  "private": true,
+  "description": "Front-end build for the Coastal Lab WordPress theme.",
+  "license": "GPL-2.0-or-later",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build",
+    "lint:js": "wp-scripts lint-js src/js",
+    "lint:css": "wp-scripts lint-style \"src/scss/**/*.scss\"",
+    "format": "wp-scripts format src",
+    "zip": "wp-scripts plugin-zip"
+  },
+  "files": [
+    "*.php",
+    "style.css",
+    "theme.json",
+    "screenshot.png",
+    "inc",
+    "template-parts",
+    "acf-json",
+    "build"
+  ],
+  "devDependencies": {
+    "@wordpress/scripts": "^30.0.0",
+    "typescript": "^5.6.0"
+  }
+}
