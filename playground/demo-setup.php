@@ -23,7 +23,7 @@ foreach ( array( 'advanced-custom-fields/acf.php', 'campus-directory/campus-dire
 
 // Make the theme available to every site, and use it on the main site too.
 $allowed                = (array) get_site_option( 'allowedthemes', array() );
-$allowed['coastal-lab']   = true;
+$allowed['coastal-lab'] = true;
 update_site_option( 'allowedthemes', $allowed );
 switch_theme( 'coastal-lab' );
 
@@ -36,9 +36,13 @@ $sites   = array(
 
 foreach ( $sites as $slug => $title ) {
 	$path = trailingslashit( $network->path . $slug );
-	if ( ! get_blog_id_from_url( $network->domain, $path ) ) {
-		wpmu_create_blog( $network->domain, $path, $title, 1 );
+	$blog_id = get_blog_id_from_url( $network->domain, $path );
+	if ( ! $blog_id ) {
+		$blog_id = wpmu_create_blog( $network->domain, $path, $title, 1 );
 	}
+	// Playground creates sites as "discourage search engines" (public = 0), and the
+	// directory only lists public sites by default, so mark the demo sites public.
+	update_blog_details( $blog_id, array( 'public' => 1 ) );
 }
 
 $lab_id = get_blog_id_from_url( $network->domain, trailingslashit( $network->path . 'coastal-lab' ) );
