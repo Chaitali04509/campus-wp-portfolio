@@ -1,0 +1,70 @@
+.container {
+	width: min(100% - 2rem, var(--cl-container));
+	margin-inline: auto;
+}
+
+.container--narrow {
+	width: min(100% - 2rem, var(--cl-container-narrow));
+}
+
+.site-main {
+	padding-block: var(--cl-space-l) var(--cl-space-xl);
+}
+
+// Front page: the hero sits flush under the header.
+.site-main--flush {
+	padding-top: 0;
+}
+
+.section {
+	padding-block: var(--cl-space-l);
+}
+
+.section--tinted {
+	background: var(--cl-color-sand);
+}
+
+.section__header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: var(--cl-space-s);
+}
+
+.page-header {
+	margin-bottom: var(--cl-space-l);
+}
+
+.page-intro {
+	color: var(--cl-color-muted);
+	max-width: 60ch;
+}
+
+.card-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+	gap: var(--cl-space-l);
+}
+
+.person-grid {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 9rem), 1fr));
+	gap: var(--cl-space-l);
+}
+
+.project-layout {
+	display: grid;
+	gap: var(--cl-space-l);
+
+	@media (min-width: 60em) {
+		grid-template-columns: minmax(0, 1fr) 18rem;
+	}
+}
+
+.entry-content > * {
+	max-width: 70ch;
+}

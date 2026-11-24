@@ -1,0 +1,16 @@
+/*
+Theme Name:        Coastal Lab
+Theme URI:         https://example.test/coastal-lab
+Description:       Custom theme for a university research lab. Research projects, team profiles and publications are modeled with custom post types and Advanced Custom Fields. Front-end assets are compiled with @wordpress/scripts (webpack). Multisite / CampusPress compatible.
+Author:            Portfolio Project
+Version:           1.0.0-rc.2
+Requires at least: 6.3
+Tested up to:      6.7
+Requires PHP:      8.0
+License:           GPL-2.0-or-later
+License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:       coastal-lab
+Tags:              accessibility-ready, custom-menu, featured-images, translation-ready, education
+*/
+
+/* Styles are compiled from src/scss into build/. This file only holds the theme header. */

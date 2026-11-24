@@ -1,0 +1,267 @@
+// Buttons
+.button {
+	display: inline-block;
+	min-height: 44px;
+	padding: 0.65rem 1.25rem;
+	border: 2px solid var(--cl-color-sea);
+	border-radius: var(--cl-radius);
+	background: var(--cl-color-sea);
+	color: #fff;
+	font-weight: 600;
+	text-decoration: none;
+
+	&:hover {
+		background: var(--cl-color-sea-dark);
+		border-color: var(--cl-color-sea-dark);
+		color: #fff;
+	}
+}
+
+.button--outline {
+	background: transparent;
+	color: var(--cl-color-sea);
+}
+
+// Badges
+.badge {
+	align-self: flex-start;
+	display: inline-block;
+	padding: 0.1rem 0.6rem;
+	border-radius: 999px;
+	font-size: 0.8125rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	background: var(--cl-color-sand);
+	color: var(--cl-color-ink);
+}
+
+.badge--active {
+	background: #d8f0e3;
+	color: #0f5132;
+}
+
+.badge--completed {
+	background: #e7ebee;
+	color: var(--cl-color-muted);
+}
+
+// Cards: whole card clickable via stretched title link.
+.card,
+.person-card {
+	position: relative;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid var(--cl-color-border);
+	border-radius: var(--cl-radius);
+	overflow: hidden;
+	background: var(--cl-color-paper);
+	transition: box-shadow 0.15s;
+
+	&:hover,
+	&:focus-within {
+		box-shadow: 0 6px 20px rgb(0 0 0 / 0.08);
+	}
+
+	&[hidden] {
+		display: none;
+	}
+}
+
+.card__media img {
+	width: 100%;
+	aspect-ratio: 16 / 10;
+	object-fit: cover;
+}
+
+.card__body {
+	padding: var(--cl-space-m);
+	display: flex;
+	flex-direction: column;
+	gap: var(--cl-space-s);
+}
+
+.card__title {
+	margin: 0;
+}
+
+.card__link {
+	color: var(--cl-color-ink);
+	text-decoration: none;
+
+	&::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+	}
+
+	&:focus-visible {
+		outline: none;
+
+		&::after {
+			outline: 3px solid var(--cl-color-focus);
+			outline-offset: -3px;
+			border-radius: var(--cl-radius);
+		}
+	}
+}
+
+.card__summary,
+.meta {
+	margin: 0;
+	color: var(--cl-color-muted);
+	font-size: 0.9375rem;
+}
+
+// Term links sit above the stretched link so they stay clickable.
+.meta--areas a {
+	position: relative;
+	z-index: 1;
+}
+
+// People
+.person-card {
+	text-align: center;
+
+	img,
+	.avatar-placeholder {
+		width: 100%;
+		max-width: 12rem;
+		aspect-ratio: 1;
+		margin: 0 auto var(--cl-space-s);
+		border-radius: 50%;
+		object-fit: cover;
+	}
+}
+
+.person-card__name {
+	font-size: 1.0625rem;
+	margin-bottom: var(--cl-space-xs);
+}
+
+.person-card__title {
+	margin: 0;
+	color: var(--cl-color-muted);
+	font-size: 0.9375rem;
+}
+
+.avatar-placeholder {
+	background: linear-gradient(135deg, var(--cl-color-sand), var(--cl-color-border));
+}
+
+// Profile page
+.profile {
+	display: grid;
+	gap: var(--cl-space-l);
+
+	@media (min-width: 48em) {
+		grid-template-columns: 16rem minmax(0, 1fr);
+	}
+
+	img,
+	.avatar-placeholder {
+		border-radius: var(--cl-radius);
+		width: 100%;
+		aspect-ratio: 1;
+	}
+}
+
+.profile__title {
+	font-size: 1.125rem;
+	color: var(--cl-color-muted);
+}
+
+.profile__contact {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--cl-space-s) var(--cl-space-l);
+}
+
+// Project facts sidebar
+.project-facts {
+	align-self: start;
+	padding: var(--cl-space-m);
+	background: var(--cl-color-sand);
+	border-radius: var(--cl-radius);
+
+	dt {
+		font-weight: 700;
+		font-size: 0.875rem;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+
+	dd {
+		margin: 0 0 var(--cl-space-m);
+	}
+}
+
+// Filter
+.filter__list {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 var(--cl-space-l);
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--cl-space-s);
+}
+
+.filter__btn {
+	display: inline-block;
+	min-height: 44px;
+	padding: 0.55rem 1rem;
+	border: 2px solid var(--cl-color-sea);
+	border-radius: 999px;
+	text-decoration: none;
+	font-weight: 600;
+
+	&[aria-current="true"] {
+		background: var(--cl-color-sea);
+		color: #fff;
+	}
+}
+
+// Hero
+.hero {
+	background: var(--cl-color-sea-dark);
+	color: #fff;
+	padding-block: var(--cl-space-xl);
+
+	a {
+		color: #fff;
+	}
+}
+
+.hero__intro {
+	font-size: 1.25rem;
+	max-width: 50ch;
+}
+
+.cta {
+	text-align: center;
+}
+
+// Pagination
+.pagination .nav-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--cl-space-s);
+	margin-top: var(--cl-space-l);
+
+	.page-numbers {
+		padding: var(--cl-space-s) var(--cl-space-m);
+		border: 1px solid var(--cl-color-border);
+		border-radius: var(--cl-radius);
+		text-decoration: none;
+	}
+
+	.current {
+		background: var(--cl-color-sea);
+		color: #fff;
+	}
+}

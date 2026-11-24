@@ -1,0 +1,95 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: var(--cl-color-paper);
+	color: var(--cl-color-ink);
+	font-family: var(--cl-font-body);
+	font-size: 1.0625rem;
+	line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+	font-family: var(--cl-font-heading);
+	line-height: 1.2;
+	margin: 0 0 var(--cl-space-m);
+}
+
+h1 {
+	font-size: clamp(2rem, 4vw, 2.75rem);
+}
+
+h2 {
+	font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h3 {
+	font-size: 1.25rem;
+}
+
+a {
+	color: var(--cl-color-sea);
+	text-underline-offset: 0.15em;
+
+	&:hover {
+		color: var(--cl-color-sea-dark);
+	}
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+// One visible focus style everywhere (WCAG 2.4.7 / 2.4.11).
+:focus-visible {
+	outline: 3px solid var(--cl-color-focus);
+	outline-offset: 2px;
+}
+
+.screen-reader-text {
+	border: 0;
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.skip-link:focus {
+	clip-path: none;
+	height: auto;
+	width: auto;
+	margin: 0;
+	padding: var(--cl-space-s) var(--cl-space-m);
+	z-index: 1000;
+	top: var(--cl-space-s);
+	left: var(--cl-space-s);
+	background: var(--cl-color-paper);
+	color: var(--cl-color-ink);
+}
+
+#main:focus {
+	outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
