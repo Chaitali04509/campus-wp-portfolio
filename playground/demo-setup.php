@@ -11,7 +11,11 @@
 
 // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals -- standalone demo script.
 
-require_once '/wordpress/wp-load.php';
+// Run via `wp eval-file` (see blueprint.json). WP-CLI loads WordPress with the
+// network's own domain/path from wp-config.php, which multisite needs to boot.
+if ( ! defined( 'ABSPATH' ) ) {
+	require_once '/wordpress/wp-load.php';
+}
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
 // Network-activate ACF and the directory plugin.

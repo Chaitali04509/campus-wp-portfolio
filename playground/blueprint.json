@@ -65,12 +65,12 @@
 			}
 		},
 		{
-			"step": "runPHP",
-			"code": "<?php require '/wordpress/demo-setup.php';"
+			"step": "wp-cli",
+			"command": "wp eval-file /wordpress/demo-setup.php"
 		},
 		{
-			"step": "runPHP",
-			"code": "<?php require '/wordpress/demo-content.php';"
+			"step": "wp-cli",
+			"command": "wp eval-file /wordpress/demo-content.php"
 		}
 	]
 }
