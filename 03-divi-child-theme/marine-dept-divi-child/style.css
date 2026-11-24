@@ -1,0 +1,12 @@
+/*
+Theme Name:  Marine Sciences (Divi Child)
+Description: Child theme for the Department of Marine Sciences site. Keeps all customizations out of Divi so parent theme updates are safe. Adds accessibility fixes for common Divi modules and a skip link.
+Author:      Portfolio Project
+Template:    Divi
+Version:     0.1.0
+Requires PHP: 8.0
+License:     GPL-2.0-or-later
+Text Domain: marine-dept
+*/
+
+/* Custom rules live in assets/css/marine.css (enqueued after Divi). */
