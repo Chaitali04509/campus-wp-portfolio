@@ -1,5 +1,14 @@
 # Campus WordPress Portfolio
 
+[![Live demo: WordPress Playground](https://img.shields.io/badge/Live_demo-Open_in_WordPress_Playground-3858e9?logo=wordpress&logoColor=white)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/Chaitali04509/campus-wp-portfolio/playground/blueprint.json)
+[![CI](https://github.com/Chaitali04509/campus-wp-portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/Chaitali04509/campus-wp-portfolio/actions/workflows/ci.yml)
+
+> **Try it live, with nothing to install.** The demo link opens a full WordPress Multisite network in your browser
+> with the Coastal Lab theme, the Campus Directory plugin, ACF and sample content. You're logged
+> in as an admin, so you can explore the dashboard too. It takes about 20–30 seconds to load, and changes
+> aren't saved. The demo is rebuilt automatically from `main` on every push
+> ([playground/](playground/) · [workflow](.github/workflows/playground.yml)).
+
 A set of WordPress / WordPress Multisite (CampusPress-style) projects built to show the
 skills needed to support a university's website work: custom themes, Advanced Custom Fields,
 PHP, npm/webpack builds, Git workflow, UX decisions, and written documentation.
